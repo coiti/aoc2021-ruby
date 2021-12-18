@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "support/input_helper"
+
 require "advent_of_code2021"
 
 RSpec.configure do |config|
@@ -12,4 +14,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include InputHelper
 end
