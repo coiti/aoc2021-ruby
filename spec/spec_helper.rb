@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-require "support/input_helper"
-
 require "advent_of_code2021"
+require "day_helper"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -15,5 +14,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.include InputHelper
+  config.extend DayHelper
 end

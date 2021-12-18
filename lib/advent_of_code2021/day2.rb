@@ -1,30 +1,25 @@
 # frozen_string_literal: true
 
 require "advent_of_code2021/day"
+require "advent_of_code2021/day2/position"
 
 module AdventOfCode2021
   class Day2 < Day
     Command = Struct.new(:direction, :units)
-    Position = Struct.new(:horizontal, :depth)
 
     def part1
-      position = Position.new(0, 0)
+      position.horizontal * position.aim
+    end
 
-      commands.each do |command|
-        case command.direction
-        when :forward
-          position.horizontal += command.units
-        when :down
-          position.depth += command.units
-        when :up
-          position.depth -= command.units
-        end
-      end
-
+    def part2
       position.horizontal * position.depth
     end
 
     private
+
+    def position
+      @position ||= Position.after(commands)
+    end
 
     def commands
       @commands ||= input.map do |command|

@@ -1,38 +1,22 @@
 # frozen_string_literal: true
 
-require "advent_of_code2021/day2"
+DayHelper.day 2 do
+  sample <<~INPUT
+    forward 5
+    down 5
+    forward 8
+    up 3
+    down 8
+    forward 2
+  INPUT
 
-RSpec.describe AdventOfCode2021::Day2 do
-  subject(:day2) { described_class.new(input) }
-
-  let(:sample_input) do
-    <<~INPUT
-      forward 5
-      down 5
-      forward 8
-      up 3
-      down 8
-      forward 2
-    INPUT
+  part 1 do
+    with_sample_input 150
+    with_puzzle_input 1_484_118
   end
 
-  let(:puzzle_input) { read "day2" }
-
-  describe "#part1" do
-    context "with sample input" do
-      let(:input) { sample_input }
-
-      it do
-        expect(day2.part1).to eq 150
-      end
-    end
-
-    context "with puzzle input" do
-      let(:input) { puzzle_input }
-
-      it do
-        expect(day2.part1).to eq 1_484_118
-      end
-    end
+  part 2 do
+    with_sample_input 900
+    with_puzzle_input 1_463_827_010
   end
 end
