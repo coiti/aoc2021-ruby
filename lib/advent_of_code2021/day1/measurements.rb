@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdventOfCode2021
-  class Day1
+  class Day1 < Day
     class Measurements
       def initialize(measurements)
         @measurements = measurements

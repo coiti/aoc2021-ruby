@@ -3,7 +3,6 @@
 require "optparse"
 
 require "advent_of_code2021/cli/options"
-require "advent_of_code2021/day1"
 
 module AdventOfCode2021
   class CLI
@@ -18,7 +17,10 @@ module AdventOfCode2021
     def start
       return if input.nil?
 
-      puts Day1.new(input).part(options.part)
+      puts AdventOfCode2021
+        .day(options.day)
+        .new(input)
+        .part(options.part)
     rescue Error => e
       warn e.message
       exit false
@@ -39,6 +41,7 @@ module AdventOfCode2021
         parser.version = AdventOfCode2021::VERSION
         parser.banner = "Usage: #{parser.program_name} OPTIONS FILE"
         parser.separator("\nOPTIONS:")
+        parser.on("-d", "--day DAY", Integer, "Day in the advent.")
         parser.on("-p", "--part PART", Integer, "Part of the day to solve.")
       end
     end

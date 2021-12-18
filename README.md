@@ -12,9 +12,11 @@ bin/setup
 ```
 
 You can then run it by passing an input, and the part of the day to solve:
+You can then run it by passing an input, the day of the advent the input
+corresponds to, and the part of the day to solve for the input:
 
 ```sh
-bundle exec exe/aoc21 --part 1 spec/input/day1.txt
+bundle exec exe/aoc21 --day 1 --part 1 spec/input/day1.txt
 ```
 
 ## Development

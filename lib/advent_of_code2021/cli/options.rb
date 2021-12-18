@@ -2,7 +2,7 @@
 
 module AdventOfCode2021
   class CLI
-    class Options < Struct.new(:part)
+    class Options < Struct.new(:day, :part)
       def self.from(parser)
         new.tap do |options|
           parser.parse!(into: options)
@@ -10,7 +10,9 @@ module AdventOfCode2021
       end
 
       def validate!
-        raise OptionParser::MissingArgument, "part" if part.nil?
+        each_pair do |name, value|
+          raise OptionParser::MissingArgument, name.to_s if value.nil?
+        end
       end
     end
   end
