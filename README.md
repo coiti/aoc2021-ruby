@@ -11,10 +11,10 @@ To run this, clone/extract this project into a local directory and set it up:
 bin/setup
 ```
 
-You can then run it by passing an input:
+You can then run it by passing an input, and the part of the day to solve:
 
 ```sh
-bundle exec exe/aoc21 spec/input/day1.txt
+bundle exec exe/aoc21 --part 1 spec/input/day1.txt
 ```
 
 ## Development
