@@ -1,27 +1,22 @@
 # frozen_string_literal: true
 
 require "advent_of_code2021/day"
+require "advent_of_code2021/day3/report"
 
 module AdventOfCode2021
   class Day3 < Day
     def part1
-      epsilon_rate = ""
-      gamma_rate = ""
+      report.power_consumption
+    end
 
-      input.first.size.times do |n|
-        epsilon_bit, gamma_bit =
-          input
-            .map { |number| number[n] }
-            .tally
-            .invert
-            .minmax
-            .map { |_count, bit| bit }
+    def part2
+      report.life_support_rating
+    end
 
-        epsilon_rate += epsilon_bit
-        gamma_rate += gamma_bit
-      end
+    private
 
-      epsilon_rate.to_i(2) * gamma_rate.to_i(2)
+    def report
+      @report ||= Report.new(input)
     end
   end
 end
