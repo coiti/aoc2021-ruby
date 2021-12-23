@@ -22,7 +22,7 @@ module AdventOfCode2021
     end
 
     def commands
-      @commands ||= input.map do |command|
+      @commands ||= lines.map do |command|
         direction, units = command.split(" ")
 
         Command.new(direction.to_sym, units.to_i)

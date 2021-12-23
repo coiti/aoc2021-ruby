@@ -16,7 +16,7 @@ module AdventOfCode2021
     private
 
     def report
-      @report ||= Report.new(input)
+      @report ||= Report.new(lines)
     end
   end
 end

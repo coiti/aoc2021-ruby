@@ -3,7 +3,7 @@
 module AdventOfCode2021
   class Day
     def initialize(input)
-      @input = input.lines(chomp: true)
+      @input = input.strip
     end
 
     def part(part)
@@ -17,5 +17,9 @@ module AdventOfCode2021
     private
 
     attr_reader :input
+
+    def lines
+      input.lines(chomp: true)
+    end
   end
 end

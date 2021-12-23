@@ -18,7 +18,7 @@ module AdventOfCode2021
     private
 
     def measurements
-      @measurements ||= input.map(&:to_i)
+      @measurements ||= lines.map(&:to_i)
     end
   end
 end
