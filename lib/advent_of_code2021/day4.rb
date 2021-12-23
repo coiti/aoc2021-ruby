@@ -6,7 +6,11 @@ require "advent_of_code2021/day4/game"
 module AdventOfCode2021
   class Day4 < Day
     def part1
-      game.winner.score
+      game.winners.first.score
+    end
+
+    def part2
+      game.winners.last.score
     end
 
     private

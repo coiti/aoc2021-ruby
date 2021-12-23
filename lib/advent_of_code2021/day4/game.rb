@@ -27,18 +27,16 @@ class AdventOfCode2021::Day4
       [numbers.join(","), *boards.map(&:format)].join("\n\n")
     end
 
-    def winner
-      return @winner if instance_variable_defined? :@winner
+    def winners
+      @winners ||= numbers.reduce([]) do |winners, number|
+        playing_boards = boards - winners
 
-      numbers.each do |number|
-        boards.each do |board|
+        playing_boards.each do |board|
           board.mark(number)
-
-          return @winner = board if board.winner?
         end
-      end
 
-      @winner = nil
+        winners + playing_boards.filter(&:winner?)
+      end
     end
   end
 end

@@ -78,11 +78,9 @@ RSpec.describe AdventOfCode2021::Day4::Game do
     end
   end
 
-  describe "#winner" do
-    it "returns the winning board" do
-      winner = boards.last
-
-      expect(game.winner).to eq winner
+  describe "#winners" do
+    it "returns the boards in winning order" do
+      expect(game.winners).to eq boards.values_at(2, 0, 1)
     end
   end
 end
