@@ -29,13 +29,13 @@ RSpec.describe AdventOfCode2021::Day5::Line do
     end
   end
 
-  describe "#to_a" do
+  describe "#points" do
     context "the line is horizontal" do
       context "begin is less than end" do
         it "is an array of all points" do
           line = described_class.parse("0,9 -> 5,9")
 
-          expect(line.to_a).to eq [
+          expect(line.points).to eq [
             Point.new(0, 9),
             Point.new(1, 9),
             Point.new(2, 9),
@@ -50,14 +50,14 @@ RSpec.describe AdventOfCode2021::Day5::Line do
         it "is an array of all points" do
           line = described_class.parse("9,4 -> 3,4")
 
-          expect(line.to_a).to eq [
-            Point.new(3, 4),
-            Point.new(4, 4),
-            Point.new(5, 4),
-            Point.new(6, 4),
-            Point.new(7, 4),
+          expect(line.points).to eq [
+            Point.new(9, 4),
             Point.new(8, 4),
-            Point.new(9, 4)
+            Point.new(7, 4),
+            Point.new(6, 4),
+            Point.new(5, 4),
+            Point.new(4, 4),
+            Point.new(3, 4)
           ]
         end
       end
@@ -68,7 +68,7 @@ RSpec.describe AdventOfCode2021::Day5::Line do
         it "is an array of all points" do
           line = described_class.parse("7,0 -> 7,4")
 
-          expect(line.to_a).to eq [
+          expect(line.points).to eq [
             Point.new(7, 0),
             Point.new(7, 1),
             Point.new(7, 2),
@@ -82,11 +82,29 @@ RSpec.describe AdventOfCode2021::Day5::Line do
         it "is an array of all points" do
           line = described_class.parse("2,2 -> 2,1")
 
-          expect(line.to_a).to eq [
-            Point.new(2, 1),
-            Point.new(2, 2)
+          expect(line.points).to eq [
+            Point.new(2, 2),
+            Point.new(2, 1)
           ]
         end
+      end
+    end
+
+    context "the line is diagonal" do
+      it "is an array of all points" do
+        line = described_class.parse("8,0 -> 0,8")
+
+        expect(line.points).to eq [
+          Point.new(8, 0),
+          Point.new(7, 1),
+          Point.new(6, 2),
+          Point.new(5, 3),
+          Point.new(4, 4),
+          Point.new(3, 5),
+          Point.new(2, 6),
+          Point.new(1, 7),
+          Point.new(0, 8)
+        ]
       end
     end
   end

@@ -18,4 +18,9 @@ DayHelper.day 5 do
     with_sample_input 5
     with_puzzle_input 5608
   end
+
+  part 2 do
+    with_sample_input 12
+    with_puzzle_input 20_299
+  end
 end
